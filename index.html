@@ -8,20 +8,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="page-loader" id="pageLoader"></div>
+<div class="splash-screen" id="splashScreen" aria-hidden="true">
+  <img src="images/logo.png" alt="Sabin Designs logo">
+</div>
 <div class="noise"></div>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#top" class="logo">SABIN<span class="logo-dot">.</span></a>
+    <a href="#top" class="logo"><img src="images/logo.png" alt="Sabin Designs"></a>
     <nav class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#work">My Work</a>
       <a href="#about">About</a>
-      <a href="#whyme">Why Me</a>
+      <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
     </nav>
     <a href="#contact" class="nav-cta">
@@ -35,13 +40,15 @@
 
 <div class="nav-drawer" id="navDrawer">
   <div class="nav-drawer-links">
+    <a href="#top" class="drawer-link">Home</a>
+    <a href="#work" class="drawer-link">My Work</a>
     <a href="#about" class="drawer-link">About</a>
-    <a href="#whyme" class="drawer-link">Why Me</a>
+    <a href="#testimonials" class="drawer-link">Testimonials</a>
     <a href="#contact" class="drawer-link">Contact</a>
   </div>
-  <a href="https://wa.me/9779768705601?text=Hi%20Sabin%2C%20I%20saw%20your%20portfolio%20and%20I'd%20like%20to%20talk%20about%20a%20project." class="nav-drawer-cta drawer-link" target="_blank" rel="noopener">
-    <i class="icon-whatsapp"></i> Let's talk on WhatsApp
-  </a>
+  <a href="#contact" class="nav-drawer-cta drawer-link">
+    <i class="icon-whatsapp"></i> Let's talk
+</a>
 </div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
@@ -53,102 +60,148 @@
 
 <main id="top">
 
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-media">
-      <img src="images/hero-working.png" alt="Sabin editing late at night, dual monitors glowing" class="hero-img">
+      <div class="hero-grid">
+        <img src="images/thumb-1.jpg" alt="" loading="lazy">
+        <img src="images/thumb-2.jpg" alt="" loading="lazy">
+        <img src="images/thumb-3.jpg" alt="" loading="lazy">
+        <img src="images/thumb-4.jpg" alt="" loading="lazy">
+        <img src="images/thumb-5.jpg" alt="" loading="lazy">
+        <img src="images/thumb-6.jpg" alt="" loading="lazy">
+        <img src="images/thumb-7.jpg" alt="" loading="lazy">
+        <img src="images/thumb-8.jpg" alt="" loading="lazy">
+        <img src="images/thumb-9.jpg" alt="" loading="lazy">
+        <img src="images/thumb-10.jpg" alt="" loading="lazy">
+        <img src="images/thumb-11.jpg" alt="" loading="lazy">
+        <img src="images/thumb-12.jpg" alt="" loading="lazy">
+        <img src="images/thumb-13.jpg" alt="" loading="lazy">
+        <img src="images/thumb-14.jpg" alt="" loading="lazy">
+        <img src="images/thumb-15.jpg" alt="" loading="lazy">
+        <img src="images/thumb-16.jpg" alt="" loading="lazy">
+        <img src="images/thumb-17.jpg" alt="" loading="lazy">
+        <img src="images/thumb-18.jpg" alt="" loading="lazy">
+        <img src="images/thumb-19.jpg" alt="" loading="lazy">
+        <img src="images/thumb-20.jpg" alt="" loading="lazy">
+        <img src="images/thumb-21.jpg" alt="" loading="lazy">
+        <img src="images/thumb-22.jpg" alt="" loading="lazy">
+      </div>
       <div class="hero-scrim"></div>
     </div>
-    <div class="hero-grain"></div>
-    <div class="hero-content">
-      <p class="eyebrow">Thumbnail &amp; design</p>
-      <h1 class="hero-title">
-        <span class="line">MAKE THEM</span>
-        <span class="line accent">CLICK.</span>
-      </h1>
-      <p class="hero-sub">I design thumbnails for podcasts, political shows, sports content and film &mdash; built around one job: stop the scroll.</p>
+    <div class="hero-content hero-content--center">
+      <h1 class="hero-line"><span class="hero-yellow">Creating Magic for Creators.</span></h1>
+      <p class="hero-sub">We help you grab your audience's attention towards your content.</p>
       <div class="hero-actions">
-        <a href="#whyme" class="btn btn-primary">See the work</a>
-        <a href="#contact" class="btn btn-ghost">Hire me on WhatsApp</a>
+        <a href="#work" class="btn btn-primary">My Works</a>
+        <a href="#contact" class="btn btn-ghost">Hire Me</a>
       </div>
     </div>
-    <a href="#about" class="scroll-cue" aria-label="Scroll down">
-      <span></span>
-    </a>
-  </section>
 
-  <section class="marquee">
-    <div class="marquee-track">
-      <span>PODCASTS</span><span>•</span><span>POLITICAL EXPOS&Eacute;S</span><span>•</span><span>SPORTS</span><span>•</span><span>FILM TEASERS</span><span>•</span><span>YOUTUBE THUMBNAILS</span><span>•</span>
-      <span>PODCASTS</span><span>•</span><span>POLITICAL EXPOS&Eacute;S</span><span>•</span><span>SPORTS</span><span>•</span><span>FILM TEASERS</span><span>•</span><span>YOUTUBE THUMBNAILS</span><span>•</span>
-    </div>
-  </section>
-
-  <section class="thumb-reel" aria-hidden="true">
-    <div class="reel-row reel-row--fwd">
-      <div class="reel-track">
-        <img src="images/thumb-1.jpg" alt="" loading="lazy">
-        <img src="images/thumb-2.jpg" alt="" loading="lazy">
-        <img src="images/thumb-3.jpg" alt="" loading="lazy">
-        <img src="images/thumb-4.jpg" alt="" loading="lazy">
-        <img src="images/thumb-5.jpg" alt="" loading="lazy">
-        <img src="images/thumb-6.jpg" alt="" loading="lazy">
-        <img src="images/thumb-7.jpg" alt="" loading="lazy">
-        <img src="images/thumb-8.jpg" alt="" loading="lazy">
-        <img src="images/thumb-9.jpg" alt="" loading="lazy">
-        <img src="images/thumb-10.jpg" alt="" loading="lazy">
-        <img src="images/thumb-11.jpg" alt="" loading="lazy">
-        <img src="images/thumb-1.jpg" alt="" loading="lazy">
-        <img src="images/thumb-2.jpg" alt="" loading="lazy">
-        <img src="images/thumb-3.jpg" alt="" loading="lazy">
-        <img src="images/thumb-4.jpg" alt="" loading="lazy">
-        <img src="images/thumb-5.jpg" alt="" loading="lazy">
-        <img src="images/thumb-6.jpg" alt="" loading="lazy">
-        <img src="images/thumb-7.jpg" alt="" loading="lazy">
-        <img src="images/thumb-8.jpg" alt="" loading="lazy">
-        <img src="images/thumb-9.jpg" alt="" loading="lazy">
-        <img src="images/thumb-10.jpg" alt="" loading="lazy">
-        <img src="images/thumb-11.jpg" alt="" loading="lazy">
-      </div>
-    </div>
-    <div class="reel-row reel-row--rev">
-      <div class="reel-track">
-        <img src="images/thumb-12.jpg" alt="" loading="lazy">
-        <img src="images/thumb-13.jpg" alt="" loading="lazy">
-        <img src="images/thumb-14.jpg" alt="" loading="lazy">
-        <img src="images/thumb-15.jpg" alt="" loading="lazy">
-        <img src="images/thumb-16.jpg" alt="" loading="lazy">
-        <img src="images/thumb-17.jpg" alt="" loading="lazy">
-        <img src="images/thumb-18.jpg" alt="" loading="lazy">
-        <img src="images/thumb-19.jpg" alt="" loading="lazy">
-        <img src="images/thumb-20.jpg" alt="" loading="lazy">
-        <img src="images/thumb-21.jpg" alt="" loading="lazy">
-        <img src="images/thumb-22.jpg" alt="" loading="lazy">
-        <img src="images/thumb-12.jpg" alt="" loading="lazy">
-        <img src="images/thumb-13.jpg" alt="" loading="lazy">
-        <img src="images/thumb-14.jpg" alt="" loading="lazy">
-        <img src="images/thumb-15.jpg" alt="" loading="lazy">
-        <img src="images/thumb-16.jpg" alt="" loading="lazy">
-        <img src="images/thumb-17.jpg" alt="" loading="lazy">
-        <img src="images/thumb-18.jpg" alt="" loading="lazy">
-        <img src="images/thumb-19.jpg" alt="" loading="lazy">
-        <img src="images/thumb-20.jpg" alt="" loading="lazy">
-        <img src="images/thumb-21.jpg" alt="" loading="lazy">
-        <img src="images/thumb-22.jpg" alt="" loading="lazy">
+    <div class="hero-clients" aria-label="Clients">
+        <p class="hero-clients-label">Trusted by 10+ creators</p>
+        <div class="client-track-wrap">
+          <div class="client-track">
+            <img src="images/client-1.png"  alt="Client 1"  loading="lazy">
+            <img src="images/client-2.png"  alt="Client 2"  loading="lazy">
+            <img src="images/client-3.png"  alt="Client 3"  loading="lazy">
+            <img src="images/client-4.png"  alt="Client 4"  loading="lazy">
+            <img src="images/client-5.png"  alt="Client 5"  loading="lazy">
+            <img src="images/client-6.png"  alt="Client 6"  loading="lazy">
+            <img src="images/client-7.png"  alt="Client 7"  loading="lazy">
+            <img src="images/client-8.png"  alt="Client 8"  loading="lazy">
+            <img src="images/client-9.png"  alt="Client 9"  loading="lazy">
+            <img src="images/client-10.png" alt="Client 10" loading="lazy">
+            <img src="images/client-11.png" alt="Client 11" loading="lazy">
+            <img src="images/client-1.png"  alt="" loading="lazy">
+            <img src="images/client-2.png"  alt="" loading="lazy">
+            <img src="images/client-3.png"  alt="" loading="lazy">
+            <img src="images/client-4.png"  alt="" loading="lazy">
+            <img src="images/client-5.png"  alt="" loading="lazy">
+            <img src="images/client-6.png"  alt="" loading="lazy">
+            <img src="images/client-7.png"  alt="" loading="lazy">
+            <img src="images/client-8.png"  alt="" loading="lazy">
+            <img src="images/client-9.png"  alt="" loading="lazy">
+            <img src="images/client-10.png" alt="" loading="lazy">
+            <img src="images/client-11.png" alt="" loading="lazy">
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== About (unchanged, with portrait) ===== -->
+ 
+
+  <!-- ===== MY WORK ===== -->
+  <section class="work" id="work">
+    <div class="section-head">
+       <h2 class="work-title">My <span class="hero-yellow">Work</span></h2>
+    </div>
+    <div class="thumb-reel">
+      <div class="reel-row reel-row--fwd">
+        <div class="reel-track">
+          <button class="tile-frame" data-img="images/thumb-1.jpg" data-alt="Thumbnail 1"><img src="images/thumb-1.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-2.jpg" data-alt="Thumbnail 2"><img src="images/thumb-2.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-3.jpg" data-alt="Thumbnail 3"><img src="images/thumb-3.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-4.jpg" data-alt="Thumbnail 4"><img src="images/thumb-4.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-5.jpg" data-alt="Thumbnail 5"><img src="images/thumb-5.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-6.jpg" data-alt="Thumbnail 6"><img src="images/thumb-6.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-7.jpg" data-alt="Thumbnail 7"><img src="images/thumb-7.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-8.jpg" data-alt="Thumbnail 8"><img src="images/thumb-8.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-9.jpg" data-alt="Thumbnail 9"><img src="images/thumb-9.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-10.jpg" data-alt="Thumbnail 10"><img src="images/thumb-10.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-11.jpg" data-alt="Thumbnail 11"><img src="images/thumb-11.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-1.jpg" data-alt="Thumbnail 1"><img src="images/thumb-1.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-2.jpg" data-alt="Thumbnail 2"><img src="images/thumb-2.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-3.jpg" data-alt="Thumbnail 3"><img src="images/thumb-3.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-4.jpg" data-alt="Thumbnail 4"><img src="images/thumb-4.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-5.jpg" data-alt="Thumbnail 5"><img src="images/thumb-5.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-6.jpg" data-alt="Thumbnail 6"><img src="images/thumb-6.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-7.jpg" data-alt="Thumbnail 7"><img src="images/thumb-7.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-8.jpg" data-alt="Thumbnail 8"><img src="images/thumb-8.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-9.jpg" data-alt="Thumbnail 9"><img src="images/thumb-9.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-10.jpg" data-alt="Thumbnail 10"><img src="images/thumb-10.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-11.jpg" data-alt="Thumbnail 11"><img src="images/thumb-11.jpg" alt="" loading="lazy"></button>
+        </div>
+      </div>
+      <div class="reel-row reel-row--rev">
+        <div class="reel-track">
+          <button class="tile-frame" data-img="images/thumb-12.jpg" data-alt="Thumbnail 12"><img src="images/thumb-12.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-13.jpg" data-alt="Thumbnail 13"><img src="images/thumb-13.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-14.jpg" data-alt="Thumbnail 14"><img src="images/thumb-14.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-15.jpg" data-alt="Thumbnail 15"><img src="images/thumb-15.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-16.jpg" data-alt="Thumbnail 16"><img src="images/thumb-16.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-17.jpg" data-alt="Thumbnail 17"><img src="images/thumb-17.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-18.jpg" data-alt="Thumbnail 18"><img src="images/thumb-18.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-19.jpg" data-alt="Thumbnail 19"><img src="images/thumb-19.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-20.jpg" data-alt="Thumbnail 20"><img src="images/thumb-20.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-21.jpg" data-alt="Thumbnail 21"><img src="images/thumb-21.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-22.jpg" data-alt="Thumbnail 22"><img src="images/thumb-22.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-12.jpg" data-alt="Thumbnail 12"><img src="images/thumb-12.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-13.jpg" data-alt="Thumbnail 13"><img src="images/thumb-13.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-14.jpg" data-alt="Thumbnail 14"><img src="images/thumb-14.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-15.jpg" data-alt="Thumbnail 15"><img src="images/thumb-15.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-16.jpg" data-alt="Thumbnail 16"><img src="images/thumb-16.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-17.jpg" data-alt="Thumbnail 17"><img src="images/thumb-17.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-18.jpg" data-alt="Thumbnail 18"><img src="images/thumb-18.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-19.jpg" data-alt="Thumbnail 19"><img src="images/thumb-19.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-20.jpg" data-alt="Thumbnail 20"><img src="images/thumb-20.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-21.jpg" data-alt="Thumbnail 21"><img src="images/thumb-21.jpg" alt="" loading="lazy"></button>
+          <button class="tile-frame" data-img="images/thumb-22.jpg" data-alt="Thumbnail 22"><img src="images/thumb-22.jpg" alt="" loading="lazy"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
   <section class="about" id="about">
     <div class="about-grid">
       <div class="about-portrait">
         <img src="images/portrait.png" alt="Portrait of Sabin" loading="lazy">
       </div>
       <div class="about-content">
-        <p class="eyebrow">About</p>
-        <h2 class="section-title">Design is the<br>easy part.<br><span class="accent">Getting clicked</span><br>is the job.</h2>
-        <p class="about-text"> I'm Sabin, a 17-year-old thumbnail designer with over 2 years of experience creating high-performing thumbnails for content creators. I focus on bold visuals, strong contrast, and attention-grabbing designs that stand out in crowded feeds. My goal isn't just to make thumbnails look good—it's to help videos get noticed, attract clicks, and reach more viewers.</p>
-        <!-- <p class="about-text">That means bold type, real contrast, and faces that hold attention &mdash; not just nice design. The work isn't a portfolio of pretty pictures, it's a record of thumbnails that got the click.</p> -->
+        <p class="eyebrow">About Me</p>
+        <p class="about-text">I'm Sabin, a 17-year-old thumbnail designer with over 2 years of experience creating high-performing thumbnails for content creators. I focus on bold visuals, strong contrast, and attention-grabbing designs that stand out in crowded feeds. My goal isn't just to make thumbnails look good—it's to help videos get noticed, attract clicks, and reach more viewers.</p>
         <div class="about-stats">
           <div class="stat">
             <span class="stat-num">2+</span>
@@ -167,86 +220,59 @@
     </div>
   </section>
 
-  <!-- ===== Why Me ===== -->
-  <section class="whyme" id="whyme">
-
-    <!-- Full-bleed scrolling collage behind the content -->
-    <div class="whyme-collage" aria-hidden="true">
-      <div class="collage-col collage-col--a">
-        <img src="images/thumb-1.jpg"  alt="" loading="lazy"><img src="images/thumb-2.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-3.jpg"  alt="" loading="lazy"><img src="images/thumb-4.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-5.jpg"  alt="" loading="lazy"><img src="images/thumb-6.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-7.jpg"  alt="" loading="lazy"><img src="images/thumb-8.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-1.jpg"  alt="" loading="lazy"><img src="images/thumb-2.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-3.jpg"  alt="" loading="lazy"><img src="images/thumb-4.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-5.jpg"  alt="" loading="lazy"><img src="images/thumb-6.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-7.jpg"  alt="" loading="lazy"><img src="images/thumb-8.jpg"  alt="" loading="lazy">
-      </div>
-      <div class="collage-col collage-col--b">
-        <img src="images/thumb-9.jpg"  alt="" loading="lazy"><img src="images/thumb-10.jpg" alt="" loading="lazy">
-        <img src="images/thumb-11.jpg" alt="" loading="lazy"><img src="images/thumb-12.jpg" alt="" loading="lazy">
-        <img src="images/thumb-13.jpg" alt="" loading="lazy"><img src="images/thumb-14.jpg" alt="" loading="lazy">
-        <img src="images/thumb-15.jpg" alt="" loading="lazy"><img src="images/thumb-16.jpg" alt="" loading="lazy">
-        <img src="images/thumb-9.jpg"  alt="" loading="lazy"><img src="images/thumb-10.jpg" alt="" loading="lazy">
-        <img src="images/thumb-11.jpg" alt="" loading="lazy"><img src="images/thumb-12.jpg" alt="" loading="lazy">
-        <img src="images/thumb-13.jpg" alt="" loading="lazy"><img src="images/thumb-14.jpg" alt="" loading="lazy">
-        <img src="images/thumb-15.jpg" alt="" loading="lazy"><img src="images/thumb-16.jpg" alt="" loading="lazy">
-      </div>
-      <div class="collage-col collage-col--c">
-        <img src="images/thumb-17.jpg" alt="" loading="lazy"><img src="images/thumb-18.jpg" alt="" loading="lazy">
-        <img src="images/thumb-19.jpg" alt="" loading="lazy"><img src="images/thumb-20.jpg" alt="" loading="lazy">
-        <img src="images/thumb-21.jpg" alt="" loading="lazy"><img src="images/thumb-22.jpg" alt="" loading="lazy">
-        <img src="images/thumb-3.jpg"  alt="" loading="lazy"><img src="images/thumb-7.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-17.jpg" alt="" loading="lazy"><img src="images/thumb-18.jpg" alt="" loading="lazy">
-        <img src="images/thumb-19.jpg" alt="" loading="lazy"><img src="images/thumb-20.jpg" alt="" loading="lazy">
-        <img src="images/thumb-21.jpg" alt="" loading="lazy"><img src="images/thumb-22.jpg" alt="" loading="lazy">
-        <img src="images/thumb-3.jpg"  alt="" loading="lazy"><img src="images/thumb-7.jpg"  alt="" loading="lazy">
-      </div>
-      <div class="collage-col collage-col--d">
-        <img src="images/thumb-5.jpg"  alt="" loading="lazy"><img src="images/thumb-11.jpg" alt="" loading="lazy">
-        <img src="images/thumb-15.jpg" alt="" loading="lazy"><img src="images/thumb-2.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-19.jpg" alt="" loading="lazy"><img src="images/thumb-8.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-13.jpg" alt="" loading="lazy"><img src="images/thumb-22.jpg" alt="" loading="lazy">
-        <img src="images/thumb-5.jpg"  alt="" loading="lazy"><img src="images/thumb-11.jpg" alt="" loading="lazy">
-        <img src="images/thumb-15.jpg" alt="" loading="lazy"><img src="images/thumb-2.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-19.jpg" alt="" loading="lazy"><img src="images/thumb-8.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-13.jpg" alt="" loading="lazy"><img src="images/thumb-22.jpg" alt="" loading="lazy">
-      </div>
-      <div class="collage-col collage-col--e">
-        <img src="images/thumb-6.jpg"  alt="" loading="lazy"><img src="images/thumb-12.jpg" alt="" loading="lazy">
-        <img src="images/thumb-16.jpg" alt="" loading="lazy"><img src="images/thumb-4.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-20.jpg" alt="" loading="lazy"><img src="images/thumb-9.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-14.jpg" alt="" loading="lazy"><img src="images/thumb-21.jpg" alt="" loading="lazy">
-        <img src="images/thumb-6.jpg"  alt="" loading="lazy"><img src="images/thumb-12.jpg" alt="" loading="lazy">
-        <img src="images/thumb-16.jpg" alt="" loading="lazy"><img src="images/thumb-4.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-20.jpg" alt="" loading="lazy"><img src="images/thumb-9.jpg"  alt="" loading="lazy">
-        <img src="images/thumb-14.jpg" alt="" loading="lazy"><img src="images/thumb-21.jpg" alt="" loading="lazy">
-      </div>
+  <!-- ===== TESTIMONIALS (replaces Why Me) ===== -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-head">
+      <!-- <p class="eyebrow">What clients say</p> -->
+      <h2 class="section-title">Testimonials</h2>
     </div>
 
-    <!-- Overlay so text stays readable -->
-    <div class="whyme-overlay"></div>
+    <div class="testi-grid">
 
-    <!-- Centred pitch content -->
-    <div class="whyme-content">
-      <p class="eyebrow">Why me?</p>
-      <h2 class="whyme-title">
-        Good design gets <span class="accent">noticed.</span><br>
-        Mine gets <span class="accent">clicked.</span>
-      </h2>
-      <p class="whyme-sub">Anyone can make a thumbnail that looks nice. What separates mine is <strong>strategy</strong> — every colour, face, and word is chosen to win the split-second battle for attention on a crowded homepage. These aren't pretty pictures. They're <strong>results on a screen.</strong></p>
-      <div class="whyme-actions">
-        <a href="https://wa.me/9779768705601?text=Hi%20Sabin%2C%20I%20saw%20your%20portfolio%20and%20I'd%20like%20to%20talk%20about%20a%20project." class="whyme-btn whyme-btn--wa" target="_blank" rel="noopener">
-          <i class="icon-whatsapp"></i> Chat on WhatsApp
-        </a>
-        <a href="https://www.facebook.com/saweenbishwakarma" class="whyme-btn whyme-btn--fb" target="_blank" rel="noopener">
-          <i class="icon-facebook"></i> Find me on Facebook
-        </a>
+      <div class="testi-card">
+        <div class="testi-logo">
+          <img src="images/client-1.png" alt="Client 1">
+        </div>
+        <p class="testi-quote">"Really happy with the thumbnail. It made my video look much more professional."</p>
+        <div class="testi-stars">★★★★★</div>
       </div>
-    </div>
 
+      <div class="testi-card">
+        <div class="testi-logo">
+          <img src="images/client-2.png" alt="Client 2">
+        </div>
+        <p class="testi-quote">"Great work and fast delivery. Will definitely work together again."</p>
+        <div class="testi-stars">★★★★★</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-logo">
+          <img src="images/client-3.png" alt="Client 3">
+        </div>
+        <p class="testi-quote">"The thumbnail turned out better than I expected. Exactly what my channel needed."</p>
+        <div class="testi-stars">★★★★★</div>
+      </div>
+
+      <!-- <div class="testi-card">
+        <div class="testi-logo">
+          <img src="images/client-4.png" alt="Client 4">
+        </div>
+        <p class="testi-quote">"He understands exactly what creators need for YouTube. Highly recommended."</p>
+        <div class="testi-stars">★★★★★</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-logo">
+          <img src="images/client-5.png" alt="Client 5">
+        </div>
+        <p class="testi-quote">"Very easy to work with and always delivers quality designs on time."</p>
+        <div class="testi-stars">★★★★★</div>
+      </div> -->
+
+    </div>
   </section>
 
+  <!-- ===== CONTACT ===== -->
   <section class="contact" id="contact">
     <div class="contact-inner">
       <p class="eyebrow">Get in touch</p>
@@ -258,11 +284,9 @@
       <div class="contact-divider"><span>or find me on</span></div>
       <div class="social-row">
         <a href="https://www.instagram.com/sabinbishwakarma11" class="social-link" aria-label="Instagram" target="_blank" rel="noopener"><i class="icon-instagram"></i><span>Instagram</span></a>
-        <!-- <a href="https://www.youtube.com/@SabinBishwakarma" class="social-link" aria-label="YouTube" target="_blank" rel="noopener"><i class="icon-youtube"></i><span>YouTube</span></a> -->
         <a href="https://www.tiktok.com/@sabin_bishwakarma" class="social-link" aria-label="TikTok" target="_blank" rel="noopener"><i class="icon-tiktok"></i><span>TikTok</span></a>
         <a href="https://www.facebook.com/saweenbishwakarma" class="social-link" aria-label="Facebook" target="_blank" rel="noopener"><i class="icon-facebook"></i><span>Facebook</span></a>
         <a href="https://x.com/sabindesigns" class="social-link" aria-label="Twitter / X" target="_blank" rel="noopener"><i class="icon-twitter"></i><span>Twitter</span></a>
-        <!-- <a href="https://www.pinterest.com/saweendesigns/" class="social-link" aria-label="Pinterest" target="_blank" rel="noopener"><i class="icon-pinterest"></i><span>Pinterest</span></a> -->
       </div>
     </div>
   </section>
@@ -271,7 +295,7 @@
 
 <footer class="footer">
   <div class="footer-inner">
-    <a href="#top" class="logo">SABIN<span class="logo-dot">.</span></a>
+     <a href="#top" class="logo"><img src="images/logo.png" alt="Sabin Designs"></a>
     <p>&copy; <span id="year"></span> Sabin Designs. Built to get the click.</p>
   </div>
 </footer>

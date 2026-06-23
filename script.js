@@ -1,11 +1,30 @@
 /* ── Page loader ── */
 const pageLoader = document.getElementById('pageLoader');
+const splashScreen = document.getElementById('splashScreen');
 if (pageLoader) {
   requestAnimationFrame(() => pageLoader.classList.add('start'));
   window.addEventListener('load', () => {
     pageLoader.classList.add('done');
-    setTimeout(() => pageLoader.remove(), 500);
+    setTimeout(() => pageLoader.remove(), 1000);
+
+    if (splashScreen) {
+      setTimeout(() => {
+        splashScreen.classList.add('hidden');
+        document.body.style.overflow = '';
+        setTimeout(() => splashScreen.remove(), 1100);
+      }, 1500);
+    }
   });
+}
+
+if (splashScreen) {
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => {
+    if (!pageLoader || pageLoader.classList.contains('done')) return;
+    splashScreen.classList.add('hidden');
+    document.body.style.overflow = '';
+    setTimeout(() => splashScreen.remove(), 1100);
+  }, 1500);
 }
 
 document.getElementById('year').textContent = new Date().getFullYear();
