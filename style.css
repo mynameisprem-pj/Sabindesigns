@@ -236,6 +236,52 @@ a { color: inherit; text-decoration: none; }
   to { transform: translateX(-50%); }
 }
 
+/* ===== Thumbnail Reel ===== */
+.thumb-reel {
+  padding: 48px 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--ink);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
+}
+.reel-row { overflow: hidden; width: 100%; }
+.reel-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  will-change: transform;
+}
+.reel-track img {
+  height: 180px;
+  width: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+}
+.reel-row--fwd .reel-track { animation: reel-fwd 35s linear infinite; }
+.reel-row--rev .reel-track { animation: reel-rev 40s linear infinite; }
+@keyframes reel-fwd {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes reel-rev {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.thumb-reel:hover .reel-track { animation-play-state: paused; }
+@media (max-width: 540px) {
+  .reel-track img { height: 120px; }
+  .thumb-reel { gap: 8px; padding: 32px 0; }
+}
+
 /* ===== Section shared ===== */
 section { padding: clamp(64px, 10vw, 120px) var(--pad); }
 .section-head { max-width: var(--container); margin: 0 auto 56px; }
@@ -246,45 +292,7 @@ section { padding: clamp(64px, 10vw, 120px) var(--pad); }
 .section-sub { margin-top: 18px; max-width: 540px; color: var(--paper-dim); font-size: 16px; line-height: 1.6; }
 .about-content .section-title { line-height: 1.08; }
 
-/* ===== Work grid ===== */
-.work { background: var(--ink); }
-.grid {
-  max-width: var(--container); margin: 0 auto;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-}
-.tile { grid-column: span 1; cursor: pointer; background: var(--card); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-.tile:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.45); }
-.tile-lg { grid-column: span 1; }
-.tile-wide { grid-column: span 1; }
-.tile-frame {
-  position: relative; overflow: hidden; border-radius: 0;
-  background: var(--card); aspect-ratio: 16/10;
-  width: 100%; border: none; padding: 0; cursor: pointer; display: block;
-}
-.tile-frame img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.55s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
-}
-.tile:hover .tile-frame img { transform: scale(1.06); filter: brightness(0.7); }
-.tile-overlay {
-  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity 0.3s ease;
-}
-.tile:hover .tile-overlay { opacity: 1; }
-.tile-play {
-  width: 56px; height: 56px; border-radius: 50%; background: rgba(245,240,232,0.95);
-  color: var(--ink); display: flex; align-items: center; justify-content: center;
-  font-size: 20px; transform: scale(0.8); transition: transform 0.3s ease;
-}
-.tile:hover .tile-play { transform: scale(1); }
-.tile-meta { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 4px; }
-.tile-tag {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--yellow);
-}
-.tile-meta h3 { font-size: 16px; font-weight: 500; color: var(--paper); line-height: 1.3; }
-
-/* ===== About ===== */
+/* ===== About (original with portrait) ===== */
 .about { background: var(--ink-soft); }
 .about-grid {
   max-width: var(--container); margin: 0 auto;
@@ -300,6 +308,129 @@ section { padding: clamp(64px, 10vw, 120px) var(--pad); }
 .stat { display: flex; flex-direction: column; }
 .stat-num { font-family: var(--display); font-size: 38px; color: var(--yellow); }
 .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+/* ===== Why Me ===== */
+.whyme {
+  position: relative;
+  padding: 0;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 5-column vertical scrolling collage fills the entire background */
+.whyme-collage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  gap: 10px;
+  padding: 0 10px;
+}
+.collage-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  will-change: transform;
+}
+.collage-col img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: block;
+  opacity: 1.95;
+}
+.collage-col--a { animation: col-up   24s linear infinite; }
+.collage-col--b { animation: col-down 30s linear infinite; }
+.collage-col--c { animation: col-up   20s linear infinite; }
+.collage-col--d { animation: col-down 26s linear infinite; }
+.collage-col--e { animation: col-up   32s linear infinite; }
+
+@keyframes col-up {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+@keyframes col-down {
+  0%   { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+/* Dark overlay so content stays readable over the collage */
+.whyme-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10,10,12,0.82) 0%,
+    rgba(10,10,12,0.70) 50%,
+    rgba(10,10,12,0.82) 100%
+  );
+  z-index: 1;
+}
+
+/* Centred pitch content sits above collage + overlay */
+.whyme-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  text-align: center;
+  padding: clamp(64px, 10vw, 120px) var(--pad);
+}
+.whyme-title {
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 1.0;
+  font-size: clamp(38px, 7vw, 80px);
+  letter-spacing: -0.01em;
+  margin-top: 12px;
+  text-shadow: 0 4px 32px rgba(0,0,0,0.6);
+}
+.whyme-sub {
+  margin-top: 28px;
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.7;
+  color: var(--paper-dim);
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.whyme-sub strong { color: var(--paper); font-weight: 700; }
+.whyme-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 44px;
+}
+.whyme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 30px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  letter-spacing: 0.01em;
+}
+.whyme-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.5); }
+.whyme-btn i { font-size: 18px; }
+/* WhatsApp — green */
+.whyme-btn--wa {
+  background: #25D366;
+  color: #0a0a0c;
+}
+.whyme-btn--wa:hover { filter: brightness(1.1); }
+/* Facebook — blue */
+.whyme-btn--fb {
+  background: #1877F2;
+  color: #ffffff;
+}
+.whyme-btn--fb:hover { filter: brightness(1.12); }
 
 /* ===== Services ===== */
 .services { background: var(--ink); }
@@ -362,16 +493,12 @@ section { padding: clamp(64px, 10vw, 120px) var(--pad); }
   .about-grid { grid-template-columns: 1fr; gap: 36px; }
   .about-portrait { max-width: 320px; }
   .services-grid { grid-template-columns: 1fr; }
-  /* Tablet: drop to 2-col grid */
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .tile, .tile-lg, .tile-wide { grid-column: span 1; }
+  /* Fewer columns on tablet so thumbnails aren't tiny */
+  .whyme-collage .collage-col--d,
+  .whyme-collage .collage-col--e { display: none; }
 }
 @media (max-width: 540px) {
-  /* Small mobile: 1-col grid */
-  .grid { grid-template-columns: 1fr; gap: 14px; }
-  .tile, .tile-lg, .tile-wide { grid-column: span 1; }
   .hero { padding-bottom: 64px; }
-  /* Stats: 3 equal columns so they never wrap unevenly */
   .about-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -379,6 +506,10 @@ section { padding: clamp(64px, 10vw, 120px) var(--pad); }
   }
   .stat-num { font-size: 28px; }
   .stat-label { font-size: 12px; }
+  /* On small phones keep only 3 columns */
+  .whyme-collage .collage-col--c { display: none; }
+  .whyme-title { font-size: clamp(32px, 9vw, 48px); }
+  .whyme-btn { padding: 14px 22px; font-size: 14px; }
 }
 
 /* Lightbox */
