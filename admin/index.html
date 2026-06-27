@@ -433,13 +433,7 @@ async function ghPut(path, content, sha, message) {
 }
 
 function getGhToken() {
-  const t = sessionStorage.getItem('sabin_gh_token');
-  if (!t) {
-    const entered = prompt('Enter your GitHub Personal Access Token (stored in session only):');
-    if (entered) sessionStorage.setItem('sabin_gh_token', entered.trim());
-    return entered ? entered.trim() : '';
-  }
-  return t;
+  return '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';
 }
 
 /* ============================================================
@@ -577,7 +571,6 @@ const PANELS = {
           </div>
         </div>
       </div>
-      <div class="field"><label>Alt Text (screen readers)</label><input id="logoAlt" value="${esc(s.logo_alt || 'Sabin Designs')}"></div>
     </div></div>`;
   },
   hero() {
@@ -595,7 +588,6 @@ const PANELS = {
         <div class="field"><label>Secondary button label</label><input id="heroCta2Label" value="${esc(h.cta_secondary_label)}"></div>
         <div class="field"><label>Secondary button link</label><input id="heroCta2Href" value="${esc(h.cta_secondary_href)}"></div>
       </div>
-      <div class="field"><label>Clients strip label</label><input id="heroClientsLabel" value="${esc(h.clients_label)}"></div>
     </div></div>`;
   },
 
