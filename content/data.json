@@ -100,6 +100,10 @@
     {
       "url": "images/thumb-22.jpg",
       "alt": "Thumbnail 22"
+    },
+    {
+      "url": "https://res.cloudinary.com/dqp8gyxri/image/upload/v1782575020/h0tdkrwmsbdj0atdrmau.png",
+      "alt": "article"
     }
   ],
   "clients": [
@@ -146,6 +150,10 @@
     {
       "url": "images/client-11.png",
       "alt": "Client 11"
+    },
+    {
+      "url": "https://res.cloudinary.com/dqp8gyxri/image/upload/v1782575008/dyk690fcrupgb3euiina.png",
+      "alt": "1"
     }
   ],
   "about": {
@@ -154,7 +162,7 @@
     "stats": [
       {
         "num": "2+",
-        "label": "Years designing"
+        "label": "Years designings"
       },
       {
         "num": "10+",
@@ -196,6 +204,12 @@
       "alt": "Client 5",
       "quote": "Very easy to work with and always delivers quality designs on time.",
       "stars": 5
+    },
+    {
+      "logo": "https://res.cloudinary.com/dqp8gyxri/image/upload/v1782575045/mbigb9x7kafggdjrtxos.png",
+      "alt": "Client 6",
+      "quote": "Mero naam prem jha ho. sabin yo admin panel bata remove gardinu lah. ",
+      "stars": 4
     }
   ],
   "contact": {
