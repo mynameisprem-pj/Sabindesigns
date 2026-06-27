@@ -1,0 +1,84 @@
+{
+  "site": {
+    "logo": "images/logo.png",
+    "logo_alt": "Sabin Designs"
+  },
+  "hero": {
+    "headline": "Design That Performs.",
+    "subtext": "We help you grab your audience's attention towards your content.",
+    "cta_primary_label": "My Works",
+    "cta_primary_href": "#work",
+    "cta_secondary_label": "Hire Me",
+    "cta_secondary_href": "#contact",
+    "clients_label": "Trusted by 10+ creators"
+  },
+  "thumbnails": [
+    { "url": "images/thumb-1.jpg",  "alt": "Thumbnail 1" },
+    { "url": "images/thumb-2.jpg",  "alt": "Thumbnail 2" },
+    { "url": "images/thumb-3.jpg",  "alt": "Thumbnail 3" },
+    { "url": "images/thumb-4.jpg",  "alt": "Thumbnail 4" },
+    { "url": "images/thumb-5.jpg",  "alt": "Thumbnail 5" },
+    { "url": "images/thumb-6.jpg",  "alt": "Thumbnail 6" },
+    { "url": "images/thumb-7.jpg",  "alt": "Thumbnail 7" },
+    { "url": "images/thumb-8.jpg",  "alt": "Thumbnail 8" },
+    { "url": "images/thumb-9.jpg",  "alt": "Thumbnail 9" },
+    { "url": "images/thumb-10.jpg", "alt": "Thumbnail 10" },
+    { "url": "images/thumb-11.jpg", "alt": "Thumbnail 11" },
+    { "url": "images/thumb-12.jpg", "alt": "Thumbnail 12" },
+    { "url": "images/thumb-13.jpg", "alt": "Thumbnail 13" },
+    { "url": "images/thumb-14.jpg", "alt": "Thumbnail 14" },
+    { "url": "images/thumb-15.jpg", "alt": "Thumbnail 15" },
+    { "url": "images/thumb-16.jpg", "alt": "Thumbnail 16" },
+    { "url": "images/thumb-17.jpg", "alt": "Thumbnail 17" },
+    { "url": "images/thumb-18.jpg", "alt": "Thumbnail 18" },
+    { "url": "images/thumb-19.jpg", "alt": "Thumbnail 19" },
+    { "url": "images/thumb-20.jpg", "alt": "Thumbnail 20" },
+    { "url": "images/thumb-21.jpg", "alt": "Thumbnail 21" },
+    { "url": "images/thumb-22.jpg", "alt": "Thumbnail 22" }
+  ],
+  "clients": [
+    { "url": "images/client-1.png",  "alt": "Client 1" },
+    { "url": "images/client-2.png",  "alt": "Client 2" },
+    { "url": "images/client-3.png",  "alt": "Client 3" },
+    { "url": "images/client-4.png",  "alt": "Client 4" },
+    { "url": "images/client-5.png",  "alt": "Client 5" },
+    { "url": "images/client-6.png",  "alt": "Client 6" },
+    { "url": "images/client-7.png",  "alt": "Client 7" },
+    { "url": "images/client-8.png",  "alt": "Client 8" },
+    { "url": "images/client-9.png",  "alt": "Client 9" },
+    { "url": "images/client-10.png", "alt": "Client 10" },
+    { "url": "images/client-11.png", "alt": "Client 11" }
+  ],
+  "about": {
+    "portrait": "images/portrait.png",
+    "bio": "I'm Sabin, a 17-year-old thumbnail designer with over 2 years of experience creating high-performing thumbnails for content creators. I focus on bold visuals, strong contrast, and attention-grabbing designs that stand out in crowded feeds. My goal isn't just to make thumbnails look good—it's to help videos get noticed, attract clicks, and reach more viewers.",
+    "stats": [
+      { "num": "2+",   "label": "Years designing" },
+      { "num": "10+",  "label": "Creator partners" },
+      { "num": "100+", "label": "Thumbnails shipped" }
+    ]
+  },
+  "testimonials": [
+    { "logo": "images/client-1.png", "alt": "Client 1", "quote": "Really happy with the thumbnail. It made my video look much more professional.", "stars": 5 },
+    { "logo": "images/client-2.png", "alt": "Client 2", "quote": "Great work and fast delivery. Will definitely work together again.", "stars": 5 },
+    { "logo": "images/client-3.png", "alt": "Client 3", "quote": "The thumbnail turned out better than I expected. Exactly what my channel needed.", "stars": 5 },
+    { "logo": "images/client-4.png", "alt": "Client 4", "quote": "He understands exactly what creators need for YouTube. Highly recommended.", "stars": 5 },
+    { "logo": "images/client-7.png", "alt": "Client 5", "quote": "Very easy to work with and always delivers quality designs on time.", "stars": 5 }
+  ],
+  "contact": {
+    "eyebrow": "Get in touch",
+    "headline": "Got a channel that needs to perform?",
+    "subtext": "Send the brief on WhatsApp — fastest way to reach me. Usually reply within a few hours.",
+    "whatsapp_number": "9779768705601",
+    "whatsapp_prefill": "Hi Sabin, I saw your portfolio and I'd like to talk about a project.",
+    "socials": [
+      { "platform": "instagram", "label": "Instagram", "url": "https://www.instagram.com/sabinbishwakarma11" },
+      { "platform": "tiktok",    "label": "TikTok",    "url": "https://www.tiktok.com/@sabin_bishwakarma" },
+      { "platform": "facebook",  "label": "Facebook",  "url": "https://www.facebook.com/saweenbishwakarma" },
+      { "platform": "twitter",   "label": "Twitter",   "url": "https://x.com/sabindesigns" }
+    ]
+  },
+  "footer": {
+    "tagline": "Built to get the click."
+  }
+}
