@@ -154,7 +154,7 @@
     "stats": [
       {
         "num": "2+",
-        "label": "Years designings"
+        "label": "Years designing"
       },
       {
         "num": "10+",
@@ -196,12 +196,6 @@
       "alt": "Client 5",
       "quote": "Very easy to work with and always delivers quality designs on time.",
       "stars": 5
-    },
-    {
-      "logo": "https://res.cloudinary.com/dqp8gyxri/image/upload/v1782575045/mbigb9x7kafggdjrtxos.png",
-      "alt": "Client 6",
-      "quote": "Mero naam prem jha ho. sabin yo admin panel bata remove gardinu lah. ",
-      "stars": 4
     }
   ],
   "contact": {
