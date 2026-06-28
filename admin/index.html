@@ -326,48 +326,67 @@ body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', syste
 
 <script>
 /* ============================================================
-   CONFIGURATION — edit these before deploying
-   ============================================================ */
+   CONFIGURATION
+============================================================ */
 const CONFIG = {
-  // Your GitHub repo  e.g. "sabindesigns/portfolio"
   GITHUB_REPO:   'mynameisprem-pj/Sabindesigns',
-  // Branch to commit to
   GITHUB_BRANCH: 'main',
-  // Cloudinary cloud name
   CLD_CLOUD:     'dqp8gyxri',
-  // Cloudinary unsigned upload preset
   CLD_PRESET:    'sabin_unsigned',
-  // Path to data file inside repo
   DATA_PATH:     'content/data.json',
-  // localStorage keys
-  TOKEN_KEY:     'sabin_admin_token',
-  PASS_HASH_KEY: 'sabin_admin_pw',
-  // Default password hash (SHA-256 of "admin123") — change on first login!
-  DEFAULT_HASH:  '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9'
+  SESSION_KEY:   'sabin_admin_session'
 };
 
 /* ============================================================
-   AUTH — Web Crypto SHA-256 + localStorage session
-   ============================================================ */
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,'0')).join('');
+   AUTH — Encrypted token + persistent session
+============================================================ */
+let GH_TOKEN = '';
+
+async function decryptToken(password) {
+  const res = await fetch('/admin/token.enc?_=' + Date.now());
+  const encryptedData = (await res.text()).trim();
+  const [ivB64, dataB64] = encryptedData.split('.');
+  const enc  = new TextEncoder();
+  const iv   = Uint8Array.from(atob(ivB64), c => c.charCodeAt(0));
+  const data = Uint8Array.from(atob(dataB64), c => c.charCodeAt(0));
+  const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
+  const key = await crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt: enc.encode('mjss-salt'), iterations: 100000, hash: 'SHA-256' },
+    keyMaterial, { name: 'AES-GCM', length: 256 }, false, ['decrypt']
+  );
+  const decrypted = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, data);
+  return new TextDecoder().decode(decrypted);
 }
 
-function savedHash() {
-  return localStorage.getItem(CONFIG.PASS_HASH_KEY) || CONFIG.DEFAULT_HASH;
+async function encryptToken(password, token) {
+  const enc = new TextEncoder();
+  const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
+  const key = await crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt: enc.encode('mjss-salt'), iterations: 100000, hash: 'SHA-256' },
+    keyMaterial, { name: 'AES-GCM', length: 256 }, false, ['encrypt']
+  );
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const encrypted = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, enc.encode(token));
+  return btoa(String.fromCharCode(...iv)) + '.' + btoa(String.fromCharCode(...new Uint8Array(encrypted)));
 }
 
-function isLoggedIn() {
-  return localStorage.getItem(CONFIG.TOKEN_KEY) === 'yes';
+async function verifyToken() {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${CONFIG.GITHUB_REPO}`, {
+      headers: { Authorization: 'Bearer ' + GH_TOKEN }
+    });
+    return res.ok;
+  } catch(e) { return false; }
 }
+
+function isLoggedIn() { return !!localStorage.getItem(CONFIG.SESSION_KEY); }
 
 function doLogout() {
-  localStorage.removeItem(CONFIG.TOKEN_KEY);
+  GH_TOKEN = '';
+  localStorage.removeItem(CONFIG.SESSION_KEY);
   location.reload();
 }
 
-/* ── Show/hide login vs app ── */
 function showApp()   { document.getElementById('loginScreen').style.display='none'; document.getElementById('appShell').classList.add('visible'); }
 function showLogin() { document.getElementById('loginScreen').style.display='flex'; document.getElementById('appShell').classList.remove('visible'); }
 
@@ -382,21 +401,41 @@ togglePw.addEventListener('click', () => {
 
 /* ── Login handler ── */
 document.getElementById('loginBtn').addEventListener('click', async () => {
-  const val = pwInput.value.trim();
-  if (!val) return;
-  const h = await sha256(val);
-  if (h === savedHash()) {
-    localStorage.setItem(CONFIG.TOKEN_KEY, 'yes');
+  const password = pwInput.value.trim();
+  if (!password) return;
+  const btn = document.getElementById('loginBtn');
+  btn.textContent = 'Checking...';
+  btn.disabled = true;
+  try {
+    GH_TOKEN = await decryptToken(password);
+    const valid = await verifyToken();
+    if (!valid) throw new Error('Wrong password');
+    localStorage.setItem(CONFIG.SESSION_KEY, GH_TOKEN);
     showApp();
     await initApp();
-  } else {
+  } catch(e) {
     document.getElementById('loginErr').textContent = 'Incorrect password.';
     pwInput.value = '';
+    GH_TOKEN = '';
   }
+  btn.textContent = 'Login';
+  btn.disabled = false;
 });
 pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('loginBtn').click(); });
-
 document.getElementById('logoutBtn').addEventListener('click', doLogout);
+
+/* ── Auto-restore session ── */
+window.addEventListener('DOMContentLoaded', async () => {
+  const saved = localStorage.getItem(CONFIG.SESSION_KEY);
+  if (saved) {
+    GH_TOKEN = saved;
+    const valid = await verifyToken();
+    if (valid) { showApp(); await initApp(); }
+    else { localStorage.removeItem(CONFIG.SESSION_KEY); GH_TOKEN = ''; showLogin(); }
+  } else {
+    showLogin();
+  }
+});
 
 /* ============================================================
    TOAST
@@ -414,7 +453,7 @@ function toast(msg, type = 'ok') {
    ============================================================ */
 async function ghGet(path) {
   const res = await fetch(`https://api.github.com/repos/${CONFIG.GITHUB_REPO}/contents/${path}`, {
-    headers: { Authorization: `token ${getGhToken()}`, Accept: 'application/vnd.github.v3+json' }
+    headers: { Authorization: `Bearer ${GH_TOKEN}`, Accept: 'application/vnd.github.v3+json' }
   });
   if (!res.ok) throw new Error(`GitHub GET failed: ${res.status}`);
   return res.json();
@@ -425,17 +464,12 @@ async function ghPut(path, content, sha, message) {
   if (sha) body.sha = sha;
   const res = await fetch(`https://api.github.com/repos/${CONFIG.GITHUB_REPO}/contents/${path}`, {
     method: 'PUT',
-    headers: { Authorization: `token ${getGhToken()}`, 'Content-Type': 'application/json' },
+    headers: { Authorization: `Bearer ${GH_TOKEN}`, 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   });
   if (!res.ok) { const err = await res.json(); throw new Error(err.message || 'GitHub PUT failed'); }
   return res.json();
 }
-
-function getGhToken() {
-  return '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';
-}
-
 /* ============================================================
    CLOUDINARY upload
    ============================================================ */
@@ -902,14 +936,36 @@ document.getElementById('cpSave').addEventListener('click', async () => {
   const confirm = document.getElementById('cpConfirm').value;
   const err     = document.getElementById('cpErr');
 
-  if (await sha256(cur) !== savedHash()) { err.textContent = 'Current password is wrong.'; return; }
-  if (nw.length < 6)                     { err.textContent = 'New password must be at least 6 characters.'; return; }
-  if (nw !== confirm)                    { err.textContent = 'Passwords do not match.'; return; }
+  if (!cur || !nw || !confirm) { err.textContent = 'Fill all fields.'; return; }
+  if (nw !== confirm)          { err.textContent = 'Passwords do not match.'; return; }
+  if (nw.length < 6)           { err.textContent = 'Min 6 characters.'; return; }
 
-  const newHash = await sha256(nw);
-  localStorage.setItem(CONFIG.PASS_HASH_KEY, newHash);
-  document.getElementById('changePwModal').classList.remove('open');
-  toast('Password changed successfully!');
+  try {
+    const oldToken = await decryptToken(cur);
+    if (oldToken !== GH_TOKEN) { err.textContent = 'Current password is wrong.'; return; }
+
+    const newEncrypted = await encryptToken(nw, GH_TOKEN);
+
+    const fileRes  = await fetch(`https://api.github.com/repos/${CONFIG.GITHUB_REPO}/contents/admin/token.enc`, {
+      headers: { Authorization: 'Bearer ' + GH_TOKEN, Accept: 'application/vnd.github+json' }
+    });
+    const fileData = await fileRes.json();
+    await fetch(`https://api.github.com/repos/${CONFIG.GITHUB_REPO}/contents/admin/token.enc`, {
+      method: 'PUT',
+      headers: { Authorization: 'Bearer ' + GH_TOKEN, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: '[CMS] Update admin password',
+        content: btoa(newEncrypted),
+        sha: fileData.sha,
+        branch: CONFIG.GITHUB_BRANCH
+      })
+    });
+
+    document.getElementById('changePwModal').classList.remove('open');
+    toast('Password changed successfully!');
+  } catch(e) {
+    err.textContent = 'Failed: ' + e.message;
+  }
 });
 
 /* ============================================================
@@ -924,13 +980,7 @@ async function initApp() {
   }
 }
 
-// Auto-restore session
-if (isLoggedIn()) {
-  showApp();
-  initApp();
-} else {
-  showLogin();
-}
+
 </script>
 </body>
 </html>
