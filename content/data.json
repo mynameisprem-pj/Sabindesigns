@@ -4,7 +4,7 @@
     "logo_alt": ""
   },
   "hero": {
-    "headline": "Hello",
+    "headline": "Designs that performs.",
     "subtext": "We help you grab your audience's attention towards your content.",
     "cta_primary_label": "My Works",
     "cta_primary_href": "#work",
@@ -104,6 +104,26 @@
     {
       "url": "https://res.cloudinary.com/dqp8gyxri/image/upload/v1789909429/csgfpr2ac2xjllsmrupo.png",
       "alt": "Sabin Designs — Thumbnails & Logo Design"
+    },
+    {
+      "url": "https://res.cloudinary.com/dqp8gyxri/image/upload/v1789909745/shedlacktggorvwn5zid.png",
+      "alt": "laptops ang 1"
+    },
+    {
+      "url": "https://res.cloudinary.com/dqp8gyxri/image/upload/v1789909770/vxg6erlrpdwgt6zh9sxi.png",
+      "alt": "watches"
+    },
+    {
+      "url": "https://res.cloudinary.com/dqp8gyxri/image/upload/v1789909775/g1tskdfjwrwnfria0wke.png",
+      "alt": "1e41"
+    },
+    {
+      "url": "https://res.cloudinary.com/dqp8gyxri/image/upload/v1789909986/pq0bwlncrnncb1kow11y.png",
+      "alt": "Goldstar Shoes 1"
+    },
+    {
+      "url": "https://res.cloudinary.com/dqp8gyxri/image/upload/v1789909990/wm7r5oag6wln30x2qulx.png",
+      "alt": "MENS OUTFITS 1"
     }
   ],
   "clients": [
@@ -153,11 +173,11 @@
     }
   ],
   "about": {
-    "portrait": "images/portrait.png",
+    "portrait": "https://res.cloudinary.com/dqp8gyxri/image/upload/v1789910042/ztpy0h3p8whtsa7ykrbu.png",
     "bio": "I'm Sabin, a 17-year-old thumbnail designer with over 2 years of experience creating high-performing thumbnails for content creators. I focus on bold visuals, strong contrast, and attention-grabbing designs that stand out in crowded feeds. My goal isn't just to make thumbnails look good—it's to help videos get noticed, attract clicks, and reach more viewers.",
     "stats": [
       {
-        "num": "2+",
+        "num": "3+",
         "label": "Years designing"
       },
       {
@@ -165,7 +185,7 @@
         "label": "Creator partners"
       },
       {
-        "num": "100+",
+        "num": "500+",
         "label": "Thumbnails shipped"
       }
     ]
@@ -175,7 +195,7 @@
       "logo": "images/client-1.png",
       "alt": "Client 1",
       "quote": "Really happy with the thumbnail. It made my video look much more professional.",
-      "stars": 5
+      "stars": 4
     },
     {
       "logo": "images/client-2.png",
@@ -209,11 +229,6 @@
     "whatsapp_number": "9779768705601",
     "whatsapp_prefill": "Hi Sabin, I saw your portfolio and I'd like to talk about a project.",
     "socials": [
-      {
-        "platform": "instagram",
-        "label": "Instagram",
-        "url": "https://www.instagram.com/sabinbishwakarma11"
-      },
       {
         "platform": "tiktok",
         "label": "TikTok",
